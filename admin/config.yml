@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: chekhablilia97-create/Math-dz
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "ar"
+
+collections:
+  - name: "lessons"
+    label: "الدروس"
+    folder: "lessons"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "عنوان الدرس", name: "title", widget: "string"}
+      - {label: "المستوى", name: "level", widget: "string"}
+      - {label: "محتوى الدرس", name: "body", widget: "markdown"}
+      - {label: "ملف PDF", name: "pdf", widget: "file", required: false}
