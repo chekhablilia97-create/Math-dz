@@ -1,34 +1,905 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Math DZ | دروس الرياضيات</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#101a35">
+
+<title>Math DZ | عالم الرياضيات</title>
+
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#f5f7fb;color:#172033}
-header{background:#173b70;color:white;padding:28px 18px;text-align:center}
-nav{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:15px;background:#fff}
-nav a{color:#174b8c;text-decoration:none;font-weight:bold}
-main{max-width:900px;margin:25px auto;padding:0 16px}
-.hero,.card{background:white;border-radius:16px;padding:22px;margin:15px 0;box-shadow:0 4px 16px #0001}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-button{background:#2463ad;color:white;border:0;border-radius:9px;padding:10px 16px;cursor:pointer}
-footer{text-align:center;padding:24px;color:#667}
-</style></head>
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+:root {
+
+  --navy:#101a35;
+
+  --blue:#3569e8;
+
+  --cyan:#36c6df;
+
+  --light:#f4f7ff;
+
+  --text:#24304b;
+
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+
+body {
+
+  font-family:'Cairo',Arial,sans-serif;
+
+  background:#f7f9ff;
+
+  color:var(--text);
+
+  line-height:1.8;
+
+}
+
+header {
+
+  background:var(--navy);
+
+  color:white;
+
+  padding:16px 7%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:15px;
+
+}
+
+.logo {
+
+  font-size:25px;
+
+  font-weight:800;
+
+  letter-spacing:1px;
+
+}
+
+.logo span {color:var(--cyan)}
+
+nav {
+
+  display:flex;
+
+  gap:22px;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+}
+
+nav a {
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:14px;
+
+}
+
+nav a:hover {color:var(--cyan)}
+
+.lang button {
+
+  background:transparent;
+
+  border:1px solid #64769c;
+
+  color:white;
+
+  padding:6px 10px;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  margin:2px;
+
+}
+
+.lang button.active {
+
+  background:var(--blue);
+
+  border-color:var(--blue);
+
+}
+
+.hero {
+
+  background:linear-gradient(125deg,#101a35,#183d75,#2464ad);
+
+  color:white;
+
+  padding:90px 8%;
+
+  text-align:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+.hero:before {
+
+  content:"∑   π   ∞";
+
+  position:absolute;
+
+  font-size:90px;
+
+  color:#ffffff0c;
+
+  top:10px;
+
+  left:5%;
+
+}
+
+.hero h1 {
+
+  font-size:clamp(30px,5vw,53px);
+
+  line-height:1.5;
+
+  margin-bottom:18px;
+
+}
+
+.hero h1 span {color:#55d9ed}
+
+.hero p {
+
+  max-width:650px;
+
+  margin:0 auto 28px;
+
+  color:#dce8ff;
+
+  font-size:17px;
+
+}
+
+.btn {
+
+  display:inline-block;
+
+  background:var(--cyan);
+
+  color:#10213d;
+
+  padding:12px 27px;
+
+  border-radius:10px;
+
+  text-decoration:none;
+
+  font-weight:800;
+
+  border:none;
+
+  cursor:pointer;
+
+  font-family:inherit;
+
+}
+
+.btn:hover {transform:translateY(-3px)}
+
+section {padding:65px 8%}
+
+.section-title {
+
+  text-align:center;
+
+  margin-bottom:35px;
+
+}
+
+.section-title h2 {
+
+  color:var(--navy);
+
+  font-size:30px;
+
+}
+
+.section-title p {color:#78839a}
+
+.cards {
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+  gap:22px;
+
+}
+
+.card {
+
+  background:white;
+
+  padding:28px 23px;
+
+  border-radius:17px;
+
+  box-shadow:0 5px 25px #172b4d0b;
+
+  border:1px solid #e9edfa;
+
+  transition:.3s;
+
+}
+
+.card:hover {
+
+  transform:translateY(-7px);
+
+  box-shadow:0 12px 30px #172b4d15;
+
+}
+
+.card .icon {font-size:36px}
+
+.card h3 {
+
+  color:var(--navy);
+
+  margin:10px 0;
+
+}
+
+.card p {color:#748098;font-size:14px}
+
+.card a {
+
+  display:inline-block;
+
+  margin-top:15px;
+
+  color:var(--blue);
+
+  text-decoration:none;
+
+  font-weight:700;
+
+}
+
+.search-box {
+
+  max-width:600px;
+
+  margin:0 auto 35px;
+
+  display:flex;
+
+  gap:10px;
+
+}
+
+.search-box input {
+
+  flex:1;
+
+  min-width:0;
+
+  padding:13px;
+
+  border:1px solid #dce3f3;
+
+  border-radius:10px;
+
+  font-family:inherit;
+
+  font-size:15px;
+
+}
+
+.search-box button {
+
+  background:var(--blue);
+
+  color:white;
+
+  border:0;
+
+  border-radius:10px;
+
+  padding:10px 20px;
+
+  font-family:inherit;
+
+  cursor:pointer;
+
+}
+
+.feature {
+
+  background:linear-gradient(120deg,#e8f6ff,#e9edff);
+
+  text-align:center;
+
+  border-radius:20px;
+
+  padding:45px 20px;
+
+  margin:0 8% 65px;
+
+}
+
+.feature h2 {color:var(--navy)}
+
+.feature p {
+
+  max-width:600px;
+
+  margin:12px auto 20px;
+
+}
+
+.badge {
+
+  display:inline-block;
+
+  background:#d5f7f5;
+
+  color:#087d83;
+
+  padding:4px 14px;
+
+  border-radius:30px;
+
+  font-size:13px;
+
+  font-weight:bold;
+
+  margin-bottom:10px;
+
+}
+
+.about {
+
+  background:white;
+
+  text-align:center;
+
+}
+
+.about p {
+
+  max-width:750px;
+
+  margin:auto;
+
+  color:#68748c;
+
+}
+
+footer {
+
+  background:var(--navy);
+
+  color:#cbd7ef;
+
+  text-align:center;
+
+  padding:30px 15px;
+
+  font-size:14px;
+
+}
+
+footer strong {color:var(--cyan)}
+
+[hidden] {display:none!important}
+
+@media(max-width:650px) {
+
+  header {justify-content:center;text-align:center}
+
+  nav {justify-content:center;gap:12px}
+
+  .hero {padding:65px 6%}
+
+  section {padding:45px 6%}
+
+  .feature {margin:0 5% 45px}
+
+}
+
+</style>
+
+</head>
+
 <body>
-<header><h1>Math DZ</h1><p id="tag">فضاء تعليمي للرياضيات — دروس، تمارين وحلول</p><button onclick="changeLang()">العربية / English / Français</button></header>
-<nav><a href="#levels">المستويات</a><a href="#bac">البكالوريا</a><a href="#about">حول الموقع</a></nav>
-<main><section class="hero"><h2 id="welcome">مرحبا بكم في Math DZ</h2><p id="intro">موردك لمراجعة الرياضيات في التعليم الثانوي الجزائري.</p></section>
-<section id="levels"><h2>المستويات الدراسية</h2><div class="grid">
-<div class="card"><h3>الأولى ثانوي</h3><p>دروس وتمارين تطبيقية</p><a href="#">استكشف الدروس</a></div>
-<div class="card"><h3>الثانية ثانوي</h3><p>ملخصات وتمارين محلولة</p><a href="#">استكشف الدروس</a></div>
-<div class="card"><h3>الثالثة ثانوي</h3><p>تحضير شامل للبكالوريا</p><a href="#">استكشف الدروس</a></div></div></section>
-<section id="bac" class="card"><h2>فضاء البكالوريا</h2><p>مواضيع سابقة، حلول نموذجية، ومراجعة حسب الشعب.</p></section>
-<section id="about" class="card"><h2>حول Math DZ</h2><p>منصة تعليمية لمساعدة التلاميذ على فهم الرياضيات والتدرب عليها.</p></section></main>
-<footer>© Math DZ</footer>
+
+<header>
+
+  <div class="logo">Math <span>DZ</span> ✦</div>
+
+  <nav>
+
+    <a href="#home" data-t="home">الرئيسية</a>
+
+    <a href="#courses" data-t="courses">الدروس</a>
+
+    <a href="#resources" data-t="resources">الموارد</a>
+
+    <a href="#about" data-t="about">من نحن</a>
+
+  </nav>
+
+  <div class="lang">
+
+    <button class="active" onclick="setLang('ar',this)">AR</button>
+
+    <button onclick="setLang('fr',this)">FR</button>
+
+    <button onclick="setLang('en',this)">EN</button>
+
+  </div>
+
+</header>
+
+<main>
+
+<div class="hero" id="home">
+
+  <h1 data-t="heroTitle">
+
+    اكتشف جمال <span>الرياضيات</span>
+
+    بطريقة مختلفة
+
+  </h1>
+
+  <p data-t="heroText">
+
+    فضاؤك التعليمي لفهم الرياضيات، اكتشاف الأفكار
+
+    وتطوير مهاراتك خطوة بخطوة.
+
+  </p>
+
+  <a href="#courses" class="btn" data-t="start">اكتشف الدروس ←</a>
+
+</div>
+
+<section id="courses">
+
+  <div class="section-title">
+
+    <h2 data-t="courseTitle">فضاؤك التعليمي</h2>
+
+    <p data-t="courseText">كل ما تحتاجه لتطوير مستواك في الرياضيات</p>
+
+  </div>
+
+  <div class="search-box">
+
+    <input id="search" type="search"
+
+      data-ph="searchPlaceholder"
+
+      placeholder="ابحث عن درس...">
+
+    <button onclick="searchCards()" data-t="searchBtn">بحث</button>
+
+  </div>
+
+  <div class="cards" id="courseCards">
+
+    <article class="card" data-search="دروس lessons cours">
+
+      <div class="icon">📚</div>
+
+      <h3 data-t="card1">الدروس</h3>
+
+      <p data-t="desc1">شروحات منظمة ومبسطة لمختلف المفاهيم الرياضية.</p>
+
+      <a href="#resources" data-t="explore">اكتشف المزيد ←</a>
+
+    </article>
+
+    <article class="card" data-search="تمارين exercises exercices">
+
+      <div class="icon">✍️</div>
+
+      <h3 data-t="card2">التمارين</h3>
+
+      <p data-t="desc2">تدرب واختبر فهمك من خلال تمارين متنوعة.</p>
+
+      <a href="#resources" data-t="explore">اكتشف المزيد ←</a>
+
+    </article>
+
+    <article class="card" data-search="بكالوريا bac">
+
+      <div class="icon">🎓</div>
+
+      <h3 data-t="card3">فضاء البكالوريا</h3>
+
+      <p data-t="desc3">موارد ومراجعات تساعدك على الاستعداد الجيد.</p>
+
+      <a href="#resources" data-t="explore">اكتشف المزيد ←</a>
+
+    </article>
+
+    <article class="card" data-search="ملفات pdf documents">
+
+      <div class="icon">📂</div>
+
+      <h3 data-t="card4">المكتبة الرقمية</h3>
+
+      <p data-t="desc4">ملفات تعليمية وملخصات قابلة للتحميل.</p>
+
+      <a href="#resources" data-t="explore">اكتشف المزيد ←</a>
+
+    </article>
+
+  </div>
+
+</section>
+
+<div class="feature">
+
+  <span class="badge" data-t="badge">قريبا</span>
+
+  <h2 data-t="featureTitle">هناك شيء مميز في الطريق!</h2>
+
+  <p data-t="featureText">
+
+    استعد لاكتشاف درس جديد بطريقة غير تقليدية.
+
+    أحيانا تكون أجمل المفاجآت مخبأة وراء سؤال رياضي!
+
+  </p>
+
+  <a href="#resources" class="btn" data-t="discover">اكتشف عالمنا</a>
+
+</div>
+
+<section id="resources">
+
+  <div class="section-title">
+
+    <h2 data-t="resourceTitle">موارد تساعدك على التميز</h2>
+
+    <p data-t="resourceText">تعلم، تدرب، واكتشف بنفسك</p>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+
+      <div class="icon">💡</div>
+
+      <h3 data-t="r1">أفكار رياضية</h3>
+
+      <p data-t="rd1">اكتشف طرقا جديدة للتفكير والتحليل.</p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="icon">🧠</div>
+
+      <h3 data-t="r2">تحديات ذهنية</h3>
+
+      <p data-t="rd2">اختبر ذكاءك ومهاراتك الرياضية.</p>
+
+    </div>
+
+    <div class="card">
+
+      <div class="icon">🌟</div>
+
+      <h3 data-t="r3">اكتشف بنفسك</h3>
+
+      <p data-t="rd3">رحلة ممتعة نحو فهم أعمق للرياضيات.</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="about" id="about">
+
+  <div class="section-title">
+
+    <h2 data-t="aboutTitle">Math DZ</h2>
+
+  </div>
+
+  <p data-t="aboutText">
+
+    Math DZ فضاء تعليمي يهدف إلى جعل الرياضيات
+
+    أكثر وضوحا ومتعة، من خلال دروس منظمة وموارد
+
+    تعليمية تساعد التلميذ على بناء تفكيره الرياضي
+
+    وتنمية قدراته.
+
+  </p>
+
+</section>
+
+</main>
+
+<footer>
+
+  <strong>Math DZ ✦</strong>
+
+  <p data-t="footer">الرياضيات ليست مجرد أرقام، إنها طريقة للتفكير.</p>
+
+  <p>© 2026 Math DZ. All rights reserved.</p>
+
+</footer>
+
 <script>
-let lang=0;const data=[
-{dir:"rtl",tag:"فضاء تعليمي للرياضيات — دروس، تمارين وحلول",welcome:"مرحبا بكم في Math DZ",intro:"موردك لمراجعة الرياضيات في التعليم الثانوي الجزائري.",levels:"المستويات الدراسية",bac:"فضاء البكالوريا",about:"حول Math DZ",nav:["المستويات","البكالوريا","حول الموقع"],cards:["الأولى ثانوي","الثانية ثانوي","الثالثة ثانوي"]},
-{dir:"ltr",tag:"A learning space for mathematics — lessons, exercises and solutions",welcome:"Welcome to Math DZ",intro:"Your resource for Algerian secondary-school mathematics.",levels:"School levels",bac:"Baccalaureate space",about:"About Math DZ",nav:["Levels","Baccalaureate","About"],cards:["1st Secondary","2nd Secondary","3rd Secondary"]},
-{dir:"ltr",tag:"Espace éducatif de mathématiques — cours, exercices et solutions",welcome:"Bienvenue sur Math DZ",intro:"Votre ressource pour les mathématiques du secondaire algérien.",levels:"Niveaux scolaires",bac:"Espace Baccalauréat",about:"À propos de Math DZ",nav:["Niveaux","Baccalauréat","À propos"],cards:["1re secondaire","2e secondaire","3e secondaire"]}];
-function changeLang(){lang=(lang+1)%3;let d=data[lang];document.documentElement.dir=d.dir;document.documentElement.lang=["ar","en","fr"][lang];document.getElementById("tag").textContent=d.tag;document.getElementById("welcome").textContent=d.welcome;document.getElementById("intro").textContent=d.intro;document.querySelectorAll("nav a").forEach((a,i)=>a.textContent=d.nav[i]);document.querySelectorAll("#levels h3").forEach((h,i)=>h.textContent=d.cards[i]);document.querySelector("#levels h2").textContent=d.levels;document.querySelector("#bac h2").textContent=d.bac;document.querySelector("#about h2").textContent=d.about;}
-</script></body></html>
+
+const translations = {
+
+ar:{
+
+home:"الرئيسية",courses:"الدروس",resources:"الموارد",about:"من نحن",
+
+heroTitle:'اكتشف جمال <span>الرياضيات</span> بطريقة مختلفة',
+
+heroText:"فضاؤك التعليمي لفهم الرياضيات، اكتشاف الأفكار وتطوير مهاراتك خطوة بخطوة.",
+
+start:"اكتشف الدروس ←",
+
+courseTitle:"فضاؤك التعليمي",
+
+courseText:"كل ما تحتاجه لتطوير مستواك في الرياضيات",
+
+searchPlaceholder:"ابحث عن درس...",searchBtn:"بحث",
+
+card1:"الدروس",desc1:"شروحات منظمة ومبسطة لمختلف المفاهيم الرياضية.",
+
+card2:"التمارين",desc2:"تدرب واختبر فهمك من خلال تمارين متنوعة.",
+
+card3:"فضاء البكالوريا",desc3:"موارد ومراجعات تساعدك على الاستعداد الجيد.",
+
+card4:"المكتبة الرقمية",desc4:"ملفات تعليمية وملخصات قابلة للتحميل.",
+
+explore:"اكتشف المزيد ←",badge:"قريبا",
+
+featureTitle:"هناك شيء مميز في الطريق!",
+
+featureText:"استعد لاكتشاف درس جديد بطريقة غير تقليدية. أحيانا تكون أجمل المفاجآت مخبأة وراء سؤال رياضي.",
+
+discover:"اكتشف عالمنا",
+
+resourceTitle:"موارد تساعدك على التميز",
+
+resourceText:"تعلم، تدرب، واكتشف بنفسك",
+
+r1:"أفكار رياضية",rd1:"اكتشف طرقا جديدة للتفكير والتحليل.",
+
+r2:"تحديات ذهنية",rd2:"اختبر ذكاءك ومهاراتك الرياضية.",
+
+r3:"اكتشف بنفسك",rd3:"رحلة ممتعة نحو فهم أعمق للرياضيات.",
+
+aboutTitle:"Math DZ",
+
+aboutText:"Math DZ فضاء تعليمي يهدف إلى جعل الرياضيات أكثر وضوحا ومتعة، من خلال دروس منظمة وموارد تعليمية تساعد التلميذ على بناء تفكيره الرياضي وتنمية قدراته.",
+
+footer:"الرياضيات ليست مجرد أرقام، إنها طريقة للتفكير.",
+
+noResults:"لم يتم العثور على نتائج."
+
+},
+
+fr:{
+
+home:"Accueil",courses:"Cours",resources:"Ressources",about:"À propos",
+
+heroTitle:'Découvrez la beauté des <span>mathématiques</span>',
+
+heroText:"Votre espace éducatif pour comprendre les mathématiques et développer vos compétences.",
+
+start:"Découvrir les cours ←",
+
+courseTitle:"Votre espace éducatif",
+
+courseText:"Tout pour progresser en mathématiques",
+
+searchPlaceholder:"Rechercher un cours...",searchBtn:"Rechercher",
+
+card1:"Cours",desc1:"Des explications simples et organisées.",
+
+card2:"Exercices",desc2:"Entraînez-vous avec des exercices variés.",
+
+card3:"Espace Bac",desc3:"Des ressources pour bien préparer le bac.",
+
+card4:"Bibliothèque",desc4:"Des documents et résumés à consulter.",
+
+explore:"Découvrir ←",badge:"Bientôt",
+
+featureTitle:"Une belle surprise se prépare !",
+
+featureText:"Préparez-vous à découvrir une nouvelle leçon d'une manière originale.",
+
+discover:"Explorer",
+
+resourceTitle:"Des ressources pour réussir",
+
+resourceText:"Apprendre, pratiquer et découvrir",
+
+r1:"Idées mathématiques",rd1:"Découvrez de nouvelles méthodes de réflexion.",
+
+r2:"Défis intellectuels",rd2:"Testez vos capacités mathématiques.",
+
+r3:"À vous de découvrir",rd3:"Un voyage vers une meilleure compréhension.",
+
+aboutTitle:"Math DZ",
+
+aboutText:"Math DZ est un espace éducatif qui rend les mathématiques plus accessibles et intéressantes grâce à des cours et des ressources pédagogiques.",
+
+footer:"Les mathématiques sont une façon de penser.",
+
+noResults:"Aucun résultat trouvé."
+
+},
+
+en:{
+
+home:"Home",courses:"Lessons",resources:"Resources",about:"About",
+
+heroTitle:'Discover the beauty of <span>Mathematics</span>',
+
+heroText:"Your learning space to understand mathematics and develop your skills step by step.",
+
+start:"Explore lessons ←",
+
+courseTitle:"Your learning space",
+
+courseText:"Everything you need to improve your mathematics",
+
+searchPlaceholder:"Search for a lesson...",searchBtn:"Search",
+
+card1:"Lessons",desc1:"Clear and organized explanations.",
+
+card2:"Exercises",desc2:"Practice with a variety of exercises.",
+
+card3:"Baccalaureate",desc3:"Resources to help you prepare.",
+
+card4:"Digital Library",desc4:"Educational files and summaries.",
+
+explore:"Discover more ←",badge:"Coming soon",
+
+featureTitle:"Something special is coming!",
+
+featureText:"Get ready to discover a new lesson in an unexpected way.",
+
+discover:"Explore",
+
+resourceTitle:"Resources to help you succeed",
+
+resourceText:"Learn, practice and discover",
+
+r1:"Mathematical Ideas",rd1:"Discover new ways to think and analyze.",
+
+r2:"Brain Challenges",rd2:"Test your mathematical skills.",
+
+r3:"Discover Yourself",rd3:"A journey towards deeper understanding.",
+
+aboutTitle:"Math DZ",
+
+aboutText:"Math DZ is an educational space designed to make mathematics clearer and more enjoyable through organized lessons and learning resources.",
+
+footer:"Mathematics is not just numbers. It is a way of thinking.",
+
+noResults:"No results found."
+
+}
+
+};
+
+function setLang(lang,btn){
+
+  const t=translations[lang];
+
+  document.documentElement.lang=lang;
+
+  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+
+  document.querySelectorAll("[data-t]").forEach(el=>{
+
+    const key=el.dataset.t;
+
+    if(t[key]) el.innerHTML=t[key];
+
+  });
+
+  document.querySelectorAll("[data-ph]").forEach(el=>{
+
+    el.placeholder=t[el.dataset.ph]||"";
+
+  });
+
+  document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
+
+  btn.classList.add("active");
+
+}
+
+function searchCards(){
+
+  const query=document.getElementById("search").value.trim().toLowerCase();
+
+  const cards=document.querySelectorAll("#courseCards .card");
+
+  let found=0;
+
+  cards.forEach(card=>{
+
+    const match=(card.innerText+" "+card.dataset.search).toLowerCase().includes(query);
+
+    card.hidden=!match;
+
+    if(match) found++;
+
+  });
+
+  let message=document.getElementById("noResults");
+
+  if(!message){
+
+    message=document.createElement("p");
+
+    message.id="noResults";
+
+    message.style.textAlign="center";
+
+    document.getElementById("courseCards").after(message);
+
+  }
+
+  const lang=document.documentElement.lang;
+
+  message.innerText=found===0?translations[lang].noResults:"";
+
+}
+
+document.getElementById("search").addEventListener("keydown",e=>{
+
+  if(e.key==="Enter") searchCards();
+
+});
+
+</script>
+
+</body>
+
+</html>
